@@ -8,4 +8,3 @@ This is a mock e-commerce React + Redux app with the following features:
 - Product detail
 - Search
 - Cart functionality
-- Custom Redux feature (see below)
