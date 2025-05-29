@@ -1,7 +1,25 @@
+import NavigBar from "@/components/NavigationBar";
 import Image from "next/image";
 
 export default function Home() {
   return (
+
+    <>
+    <div className="flex items-center justify-center px-6 py-4">
+        <Image
+          className="dark:invert"
+          src="/buy_sell.jpg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
+        />
+
+        <NavigBar />
+
+    </div>
+
+    
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
@@ -90,7 +108,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/globe.svg"
+            src="/buy_sell.jpg"
             alt="Globe icon"
             width={16}
             height={16}
@@ -99,5 +117,6 @@ export default function Home() {
         </a>
       </footer>
     </div>
+    </>
   );
 }

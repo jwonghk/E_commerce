@@ -24,3 +24,88 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/*
+.navbar {
+  background-color: #333;
+  padding: 1rem;
+}*/
+
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  /*background: red;*/ 
+}
+
+.navbar a {  
+  color: black;
+  font-weight: bold;
+  text-decoration: none; /* optional: remove underline */ 
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* space between nav items */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  font-size: 1rem;
+  color: white;
+}
+
+/*
+.custom-gap {
+  background: red; 
+}*/
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.custom-gap {
+  display: flex;
+  gap: 24px;
+}
+
+
+/*For ProductsCategory*/
+.product-category-container {
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.category-table th,
+.category-table td {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.category-table thead {
+  background-color: #f5f5f5;
+}
+
+.category-table tr:hover {
+  background-color: #f9f9f9;
+}
