@@ -1,6 +1,8 @@
-
+//'useClient';
+import ProductTable from "@/components/CategoryProductTable";
 import MockProducts from "../../../data/mockProducts";
 import Image from 'next/image';
+//import { useState } from "react";
 
 
 type CategoryPageProps = {
@@ -14,6 +16,8 @@ export default function CategoryPage(props : CategoryPageProps) {
     // Error: Route "/productsCategory/[category]" used `params.category`. `params` should be awaited 
     // before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
     const category = parameter.categoryType;
+
+    //const [checked, setchecked] = useState(false);
     
     const filterProducts = MockProducts.filter((product : any) => product.category.toLowerCase() === category.toLowerCase());
 
@@ -32,21 +36,12 @@ export default function CategoryPage(props : CategoryPageProps) {
                             <th>Price </th>
                             <th>Descriptions</th>
                             <th>Photo</th>
+                            <th>Add To Cart</th>
                         </tr>
                     </thead>
+                    
                     <tbody>
-                        {filterProducts.map((prod, id) => (
-                            <tr key={id}>
-                                <td> {prod.name}</td>
-                                <td> {prod.price}</td>
-                                <td> {prod.description}</td>
-                                <td> <Image src = {prod.image} 
-                                            alt = {prod.name}
-                                            width = {100}
-                                            height = {100}
-                                            /> </td>
-                            </tr>
-                        ))}
+                        <ProductTable category={category} />
                     </tbody>
                 </table>
             </div>
