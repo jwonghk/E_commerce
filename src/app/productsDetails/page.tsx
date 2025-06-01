@@ -1,5 +1,5 @@
 import React from "react";
-import MockProducts from "@/data/mockProducts";
+import MockProducts from "@/data/mockProducts.json";
 import Image from "next/image";
 
 function ProductsDetails() {
@@ -16,7 +16,7 @@ function ProductsDetails() {
                 </tr>
             </thead>
             <tbody>
-                {MockProducts.map((item, id) => (
+                {MockProducts.map((item : any, id : number) => (
                     <tr key={id}>
                         <td style={{textAlign : 'center'}}> {item.name}</td>
                         <td style={{textAlign : 'center'}}> {item.price} </td>

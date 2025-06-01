@@ -1,6 +1,6 @@
 //'useClient';
 import ProductTable from "@/components/CategoryProductTable";
-import MockProducts from "../../../data/mockProducts";
+import MockProducts from "../../../data/mockProducts.json";
 import Image from 'next/image';
 //import { useState } from "react";
 
@@ -41,7 +41,7 @@ export default function CategoryPage(props : CategoryPageProps) {
                     </thead>
                     
                     <tbody>
-                        <ProductTable category={category} />
+                        <ProductTable AlreadyFilteredProduct={filterProducts} />
                     </tbody>
                 </table>
             </div>

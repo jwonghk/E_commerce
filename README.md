@@ -17,7 +17,7 @@ This project is a frontend web application that simulates a simplified e-commerc
 
     🛒 Mock shopping cart entry point
 
-    📦 Organized with a mockProducts.ts file for easy data extension
+    📦 Organized with a mockProducts.json file for easy data extension
 
     💡 Component-based UI using React + TypeScript
 
