@@ -70,5 +70,20 @@
     "price": "$1299",
     "image": "/images/samsung-tv.jpg",
     "category": "TV"
+  },
+  {
+    "id": 10,
+    "name": "Honda Civic",
+    "category": "cars",
+    "price": "$27300",
+    "image": "/images/civic_car.jpg",
+    "description": "honda sedan"
+  },
+  {  "id": 11,
+    "name": "Honda Accord",
+    "category": "cars",
+    "price": "$37900",
+    "image": "/images/honda_accord.webp",
+    "description": "honda family car"
   }
 ]

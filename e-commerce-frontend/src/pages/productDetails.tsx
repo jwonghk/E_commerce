@@ -1,8 +1,7 @@
-import React from "react";
-import MockProducts from "@/data/mockProducts.json";
-import Image from "next/image";
+import MockProducts from "../data/mockProducts.json";
 
-function ProductsDetails() {
+
+function IndividualProductsDetails() {
     return (
         <div>
         <h1 style= {{textAlign : 'center' , fontSize : '5rem'}}>  List of Products Found  </h1>
@@ -21,7 +20,7 @@ function ProductsDetails() {
                         <td style={{textAlign : 'center'}}> {item.name}</td>
                         <td style={{textAlign : 'center'}}> {item.price} </td>
                         <td style={{textAlign : 'center'}}> {item.description} </td>
-                        <td> <Image
+                        <td> <img
                             src = {item.image}
                             alt = {item.name}
                             height = {100}
@@ -37,4 +36,4 @@ function ProductsDetails() {
     )
 };
 
-export default ProductsDetails;
+export default IndividualProductsDetails;

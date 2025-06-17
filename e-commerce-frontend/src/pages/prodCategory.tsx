@@ -1,7 +1,7 @@
-import React from "react";
-import "../globals.css";
-import Link from "next/link";
 
+import "../globals.css";
+//import Link from "next/link";
+import {Link} from 'react-router-dom';
 
 const LinksCategories = {
     laptops : "/productsCategory/laptops",
@@ -44,7 +44,7 @@ function ProductsCate() {
                             <td> {cat.update} </td>
                             <td> {cat.count} </td>
                             <td> 
-                                <Link href={cat.link}>
+                                <Link to={cat.link}>
                                     <span style = {{color : 'blue', textDecoration: 'underline', cursor: 'pointer'}}>
                                         View
                                     </span>

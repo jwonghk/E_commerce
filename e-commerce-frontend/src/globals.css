@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  margin: 0;
+  height: 100%;
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center; /* center items horizontally */
+  align-items: center;     /* center vertically if needed */
+  gap: 2rem;               /* space between links */
+  margin-top: 2rem;
+  flex-wrap: wrap;         /* allow wrapping on small screens */
+  width: 100%;             /* ensures navbar uses full width */
+}
+
+
+.navbar a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #b76f6f;
+}
+
+.navbar a:hover {
+  color: #007bff;
+}
+
+
+
+#root {
+  display: flex;
+  align-items: center;        /* Vertical centering */
+  justify-content: center;    /* Horizontal centering */
+  min-height: 100vh;
+}
+
+
+.layout-wrapper {
+  text-align: center;
+  padding: 2rem;
+}
