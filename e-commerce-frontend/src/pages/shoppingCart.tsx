@@ -12,6 +12,11 @@ const ShoppingCart = () => {
         dispatch(toggleItem(product))
     }
 
+    let totalPrice = 0;
+    cartItems.map(item => {
+        totalPrice = totalPrice + Number(item.price);
+    });
+
     return (
  
          <div className="overflow-x-auto w-full">
@@ -60,7 +65,12 @@ const ShoppingCart = () => {
                     )}
                     </tbody>
                 </table>
+                <tr>
+                    Total price : {totalPrice} 
+                </tr>
             </div>
+            
+            
             );
         };
 

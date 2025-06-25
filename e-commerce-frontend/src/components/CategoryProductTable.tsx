@@ -1,5 +1,8 @@
 'use client';
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux"; 
+import type { RootState } from "../store/store";
+import { toggleItem } from "../store/cartSlice"; 
 
 type Products = {
   id: number;
@@ -11,12 +14,18 @@ type Products = {
 };
 
 function ProductTable({ AlreadyFilteredProduct }: { AlreadyFilteredProduct: Products[] }) {
-  const [checkedItems, setCheckedItems] = useState<number[]>([]);
+  //const [checkedItems, setCheckedItems] = useState<number[]>([]);
+  const currentInCart = useSelector((state: RootState) => state.adder.items);
 
-  const toggleCheckBox = (id: number) => {
+  const dispatch = useDispatch();
+
+  const toggleCheckBox = (product : Products) => {
+    /*
     setCheckedItems((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
-    );
+      prev.includes(product.id) ? prev.filter((i) => i !== product.id) : [...prev, product.id]
+    );*/
+    dispatch(toggleItem(product));
+
   };
 
   return (
@@ -49,8 +58,9 @@ function ProductTable({ AlreadyFilteredProduct }: { AlreadyFilteredProduct: Prod
                 <td className="px-4 py-2 border text-center">
                   <input
                     type="checkbox"
-                    checked={checkedItems.includes(prod.id)}
-                    onChange={() => toggleCheckBox(prod.id)}
+                    //checked={checkedItems.includes(prod.id)}
+                    checked = {currentInCart.includes(prod)}
+                    onChange={() => toggleCheckBox(prod)}
                     className="w-4 h-4"
                   />
                 </td>

@@ -28,7 +28,7 @@ export const addedToCart = createSlice({
         toggleItem: (state, action: PayloadAction<Product>) => {
             const index = state.items.findIndex((item) => item.id === action.payload.id);
             if (index >= 0) {
-                state.items.splice( index, 1);
+                state.items.splice(index, 1);
             } else {
                 state.items.push(action.payload);
             }
