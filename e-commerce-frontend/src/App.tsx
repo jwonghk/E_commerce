@@ -7,6 +7,8 @@ import IndividualProductsDetails from "./pages/productDetails";
 import Search from "./pages/search";
 import ShoppingCart from "./pages/shoppingCart";
 import Category from "./pages/CategoryPage";
+import CheckOut from "./pages/checkOutPage";
+
 // Import other pages as needed
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
       <Route path="/search" element={<Search/>} />
       <Route path="/shoppingCart" element={<ShoppingCart />} />
       <Route path="/productsCategory/:categoryType" element={<Category />} />
+      <Route path="/checkingOutPage" element={<CheckOut />} />
 
       {/* Add other routes below */}
     </Routes>

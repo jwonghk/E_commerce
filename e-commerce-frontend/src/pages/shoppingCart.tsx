@@ -2,13 +2,15 @@ import { useSelector, useDispatch } from "react-redux";
 import type {RootState} from '../store/store'; 
 import { toggleItem } from "../store/cartSlice";
 import { useState } from "react";
-
+import { useNavigate} from "react-router-dom";
 
 
 
 
 const ShoppingCart = () => {
     const cartItems = useSelector((state : RootState) => state.adder.items);
+
+    const toNavigate = useNavigate();
 
 
     // use a state to capture the temporary status of items  i.e. whether
@@ -102,10 +104,18 @@ const ShoppingCart = () => {
                     </tr>
                     <tr>
                         
-                        <td colSpan={5} className="text-center px-4 py-2 font-bold">
+                        <td colSpan={5} className="text-center px-7 py-2 font-bold">
+                            <button onClick={() => toNavigate('/')} >
+                                Back to Home Page
+                            </button>
+
                             <button onClick={confirmSelections} >                        
                                 Confirm Selections
                             </button>
+                            <button onClick={()=> toNavigate('/checkingOutPage')} >                        
+                                Proceed To Checkout
+                            </button>
+
                         </td>
                     </tr>
 
@@ -115,7 +125,7 @@ const ShoppingCart = () => {
          
             </table>
 
-            </div>
+        </div>
             
             
             );
