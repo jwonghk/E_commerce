@@ -1,21 +1,47 @@
 import { useSelector, useDispatch } from "react-redux";
 import type {RootState} from '../store/store'; 
 import { toggleItem } from "../store/cartSlice";
+import { useState } from "react";
+
+
 
 
 
 const ShoppingCart = () => {
     const cartItems = useSelector((state : RootState) => state.adder.items);
+
+
+    // use a state to capture the temporary status of items  i.e. whether
+    // the items are selected or deselected
+    const [currentInCart, updateInCart] = useState(cartItems);
     const dispatch = useDispatch();
 
+
     const handleToggle = (product : any) => {
-        dispatch(toggleItem(product))
-    }
+        //dispatch(toggleItem(product))
+        updateInCart((prev) => 
+            prev.includes(product) ? prev.filter((p) => p.id !== product.id) : [...prev, product]
+        )
+    };
+
+    const confirmSelections = () => {
+        cartItems.map((anItemInCart) => {
+            if (currentInCart.includes(anItemInCart)) {
+                console.log("Item stills in both previous Cart and current Cart!");
+            } else {
+                dispatch(toggleItem(anItemInCart))
+                console.log("Item Just update to be included in Cart");
+            }
+        })
+    };
 
     let totalPrice = 0;
-    cartItems.map(item => {
-        totalPrice = totalPrice + Number(item.price);
+    currentInCart.map(item => {
+        //totalPrice = totalPrice + Number(item.price);
+        totalPrice += parseFloat(item.price.replace(/[^0-9.]/g, ''));
     });
+
+
 
     return (
  
@@ -48,26 +74,47 @@ const ShoppingCart = () => {
                             <td className="px-4 py-2 border text-center">
                                 <input 
                                     type="checkbox"
-                                    checked={true}
+                                    checked={currentInCart.includes(item)}
+                                    //checked={false}
+                                    //checked={currentInCart.includes(item)}
                                     onChange={() => handleToggle(item)}
                                     className="w-4 h-4"
                                 />
                             </td>
-                        </tr>)
+                        </tr>
+                            )
                         )
                     }
                     {cartItems.length === 0 && (
                         <tr>
                             <td colSpan={5} className="text-center py-4 text-gray-500">
-                            Your cart is empty.
+                                Your cart is empty.
                             </td>
                         </tr>
                     )}
-                    </tbody>
-                </table>
-                <tr>
-                    Total price : {totalPrice} 
-                </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colSpan={5} className="text-right px-4 py-2 font-bold">
+                            Total price : ${totalPrice} 
+                        </td>
+                    </tr>
+                    <tr>
+                        
+                        <td colSpan={5} className="text-center px-4 py-2 font-bold">
+                            <button onClick={confirmSelections} >                        
+                                Confirm Selections
+                            </button>
+                        </td>
+                    </tr>
+
+                    
+
+                </tfoot>
+         
+            </table>
+
             </div>
             
             
