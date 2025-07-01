@@ -27,4 +27,3 @@ This project is a frontend web application that simulates a simplified e-commerc
 
 References:
 1. https://www.sitepoint.com/creating-a-navbar-in-react/    (for react navbar)
-2. 
