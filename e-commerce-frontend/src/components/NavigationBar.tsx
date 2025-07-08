@@ -10,6 +10,7 @@ const NavigationBar = () => {
       <Link to="/productCategories">Products Categories</Link>
       <Link to="/search">Search</Link>
       <Link to="/shoppingCart">Shopping Cart</Link>
+      <Link to="/admin"> Admin </Link>
     </nav>
   );
 };
