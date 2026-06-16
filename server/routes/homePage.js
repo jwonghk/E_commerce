@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
 
+
+/*
 router.post('/fakeData', async(req, res) => {
     try {
         const sampleProducts = [
@@ -20,9 +22,18 @@ router.post('/fakeData', async(req, res) => {
         }
     }
 )
+*/
 
 router.get('/', (req, res) => {
+    try{
     res.send("quick");
+    } catch (err) {
+        res.status(500).send("API not set up yet!!");
+    } 
+})
+
+router.get('/a234', (req, res) => {
+    res.send("quick234");
 })
 
 module.exports = router;

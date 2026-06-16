@@ -1,11 +1,15 @@
 const { default: mongoose } = require('mongoose');
-const moogoose = require('mongoose');
+//const mongoose = require('mongoose');
 
-const productSchema = new moogoose.Schema({
+const productSchema = new mongoose.Schema({
+    id: { type: Number, unique: true }, 
     name: String,
-    description: String,
+    category: String,
     price: Number,
-    image: String
+    image: String,
+    description: String
 })
 
+
+// schemes are compiled into models 
 module.exports = mongoose.model('Product', productSchema)

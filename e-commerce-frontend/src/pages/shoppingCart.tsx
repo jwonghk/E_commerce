@@ -8,7 +8,7 @@ import { useNavigate} from "react-router-dom";
 
 
 const ShoppingCart = () => {
-    const cartItems = useSelector((state : RootState) => state.adder.items);
+    const cartItems = useSelector((state : RootState) => state.cart.items);
 
     const toNavigate = useNavigate();
 
@@ -20,21 +20,20 @@ const ShoppingCart = () => {
 
 
     const handleToggle = (product : any) => {
-        //dispatch(toggleItem(product))
-        updateInCart((prev) => 
-            prev.includes(product) ? prev.filter((p) => p.id !== product.id) : [...prev, product]
-        )
+        updateInCart((prev) =>
+            prev.some((p: any) => p.id === product.id) ? prev.filter((p: any) => p.id !== product.id) : [...prev, product]
+        );
     };
 
     const confirmSelections = () => {
         cartItems.map((anItemInCart) => {
-            if (currentInCart.includes(anItemInCart)) {
+            if (currentInCart.some((i: any) => i.id === anItemInCart.id)) {
                 console.log("Item stills in both previous Cart and current Cart!");
             } else {
-                dispatch(toggleItem(anItemInCart))
+                dispatch(toggleItem(anItemInCart));
                 console.log("Item Just update to be included in Cart");
             }
-        })
+        });
     };
 
     let totalPrice = 0;
