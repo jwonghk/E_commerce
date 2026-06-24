@@ -15,8 +15,10 @@ const customerSchema = new mongoose.Schema({
   email: String,
   name: String,
   cart: [cartItemSchema],
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  passwordHash: String
 });
+
 
 module.exports = mongoose.model('Customer', customerSchema);
 

@@ -11,19 +11,22 @@ const Register = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError('');
     setMessage('');
+    //setPassword('');
 
     const trimmedName = username.trim();
     const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
 
-    if (!trimmedName || !trimmedEmail) {
-      setError('Please enter both a username and an email address.');
+    if (!trimmedName || !trimmedEmail || !trimmedPassword) {
+      setError('Please enter all of username, an email address and a password.');
       return;
     }
 
@@ -33,9 +36,38 @@ const Register = () => {
       return;
     }
 
-    dispatch(setUser({ username: trimmedName, email: trimmedEmail }));
+    //dispatch(setUser({ username: trimmedName, email: trimmedEmail, token: trimmedPassword }));
+    //setMessage('Account created successfully!');
+    try {
+    const response = await fetch('http://localhost:3000/reg/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json',
+              },
+      body: JSON.stringify({
+        username: trimmedName,
+        email: trimmedEmail,
+        password: trimmedPassword
+      }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error || 'Registration Failed!');
+    }
+
+    dispatch(
+      setUser({ 
+        username: trimmedName, 
+        email: trimmedEmail, 
+        token: data.token ||  null
+      }));
     setMessage('Account created successfully!');
-    navigate('/');
+    setPassword('');
+    //setTimeout(() => navigate('/'), 1500);
+    //navigate('/');
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong with connecting to server!');
+    };
   };
 
   return (
@@ -43,7 +75,7 @@ const Register = () => {
       <NavigationBar />
       <div className="register-form-container">
         <h1>Create your account</h1>
-        <p>Enter a username and email address to register.</p>
+        <p>Enter a username, email address, and password to register.</p>
         <form onSubmit={handleSubmit} className="register-form">
           <label>
             Username
@@ -63,6 +95,17 @@ const Register = () => {
               placeholder="your@email.com"
             />
           </label>
+
+          <label>
+            Password
+            <input
+              type="text"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Pleae enter a memorable password!"
+            />
+          </label>
+
           <button type="submit">Register</button>
         </form>
         {error && <div className="error-message">{error}</div>}
