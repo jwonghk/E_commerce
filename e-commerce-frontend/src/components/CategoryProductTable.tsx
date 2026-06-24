@@ -15,7 +15,10 @@ type Products = {
 
 function ProductTable({ AlreadyFilteredProduct }: { AlreadyFilteredProduct: Products[] }) {
   //const [checkedItems, setCheckedItems] = useState<number[]>([]);
-  const currentInCart = useSelector((state: RootState) => state.adder.items);
+  const currentInCart = useSelector((state: RootState) => state.cart);
+
+
+
 
   const dispatch = useDispatch();
 
@@ -59,7 +62,7 @@ function ProductTable({ AlreadyFilteredProduct }: { AlreadyFilteredProduct: Prod
                   <input
                     type="checkbox"
                     //checked={checkedItems.includes(prod.id)}
-                    checked = {currentInCart.includes(prod)}
+                    checked = {currentInCart.items.some(item => item.id === prod.id)}
                     onChange={() => toggleCheckBox(prod)}
                     className="w-4 h-4"
                   />

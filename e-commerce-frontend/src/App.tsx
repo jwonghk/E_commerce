@@ -8,8 +8,9 @@ import Search from "./pages/search";
 import ShoppingCart from "./pages/shoppingCart";
 import Category from "./pages/CategoryPage";
 import CheckOut from "./pages/checkOutPage";
-
-// Import other pages as needed
+import AdminPage from "./pages/admin";
+import AddProduct from "./pages/addingProduct";
+import Register from "./pages/register";
 
 function App() {
   return (
@@ -22,8 +23,10 @@ function App() {
       <Route path="/shoppingCart" element={<ShoppingCart />} />
       <Route path="/productsCategory/:categoryType" element={<Category />} />
       <Route path="/checkingOutPage" element={<CheckOut />} />
-
+      <Route path="/admin" element={<AdminPage />}/>
+      <Route path="/register" element={<Register />} />
       {/* Add other routes below */}
+      <Route path="/addingProduct" element={<AddProduct />}/>
     </Routes>
   );
 }
