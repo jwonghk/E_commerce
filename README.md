@@ -24,6 +24,9 @@ This project is a frontend web application that simulates a simplified e-commerc
     💅 Styled with plain CSS (globals.css) — no dependency on Tailwind or frameworks
 
 
+<img width="1147" height="523" alt="image" src="https://github.com/user-attachments/assets/4536fbdd-4b9a-480c-8a0b-015a80039d4e" />
+
+
 
 References:
 1. https://www.sitepoint.com/creating-a-navbar-in-react/    (for react navbar)
