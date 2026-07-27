@@ -23,8 +23,19 @@ This project is a frontend web application that simulates a simplified e-commerc
 
     💅 Styled with plain CSS (globals.css) — no dependency on Tailwind or frameworks
 
-
+Home Page:
 <img width="1147" height="523" alt="image" src="https://github.com/user-attachments/assets/4536fbdd-4b9a-480c-8a0b-015a80039d4e" />
+Product Categories:
+<img width="691" height="299" alt="image" src="https://github.com/user-attachments/assets/c81cb357-1b71-4767-8ee8-cd5099502f5f" />
+Search function:
+<img width="495" height="665" alt="image" src="https://github.com/user-attachments/assets/8ed48526-e532-416a-b474-7d4baecd89dd" />
+Shopping Cart:
+<img width="680" height="228" alt="image" src="https://github.com/user-attachments/assets/e36759f9-0b22-41d2-92c2-bfe82fa00f71" />
+User Registration:
+<img width="415" height="425" alt="image" src="https://github.com/user-attachments/assets/eeca4da4-586b-4a97-9263-a38cf1da0e52" />
+
+
+
 
 
 
